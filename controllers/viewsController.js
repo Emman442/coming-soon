@@ -18,7 +18,8 @@ exports.index = async (req, res) => {
 exports.getOverview = async (req, res) => {
   const users = await WaitList.find();
   try{
-    res.status(200).render("about", { users: users.length, title: "join the Communities" });
+    // res.status(200).render("about", { users: users.length, title: "join the Communities" });
+    res.status(200).render("index", { users: users.length, title: "join the Communities" })
   }catch(error){
     console.log(error)
   }
