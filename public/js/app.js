@@ -49,7 +49,7 @@ const signup = async (firstName, lastName, email) => {
     if (result.status == "201") {
       showAlert("success", "Account Created Successfully!!");
       window.setTimeout(() => {
-        location.assign("/");
+        location.assign("/about");
       }, 1500);
     }
     console.log(result);

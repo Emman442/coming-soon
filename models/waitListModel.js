@@ -4,20 +4,21 @@ const waitListSchema = new mongoose.Schema({
   firstName: {
     type: String,
     required: [true, "Please enter your first name"],
-    trim: true
+    trim: true,
   },
   lastName: {
     type: String,
     required: [true, "Please enter your first name"],
-    trim: true
+    trim: true,
   },
   email: {
     type: String,
     required: [true, "Please enter your email"],
     unique: true,
     lowercase: true,
-    validate: [validator.isEmail, 'Please provide an email'],
+    validate: [validator.isEmail, "Please provide an email"],
   },
+  timestamp: { type: Date, default: Date.now },
 });
 const WaitList = mongoose.model("WaitList", waitListSchema)
 module.exports = WaitList

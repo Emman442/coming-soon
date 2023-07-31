@@ -63,7 +63,7 @@
         </div>
       </div>
       <!-- <a href="/" class="bg-[#DAA520] text-white py-3 w-full block max-w-[90%] mx-auto rounded-lg mt-14 lg:max-w-full" id="openModal">Join waitlist</a> -->
-      <button style="width: 100px; height: 50px; margin: 50px 50px 50px 0px; background-color:#DAA520; display: block; color: white; width: 100% ; border-radius: 5px;" id="openModal">Join The WaitList!</button>
+      <button style="width: 100px; height: 50px; margin: 50px 50px 50px 0px; background-color:#DAA520; display: block; color: white; width: 100% ; border-radius: 5px;" id="openModal">Join The WaitList</button>
     </form>
       <p class="text-white mt-4 xl:mt-8">Current Waitlisted Users <span class="bg-gradient-to-br font-medium text-xl xl:text-2xl xl:pl-2 from-white to-gray-600 bg-clip-text text-transparent"><%= users %></span></p>
       <div class="xl:hidden">
@@ -112,12 +112,17 @@
     <img src="./images/creed.gif" class="h-[50vh] object-contain -mt-[30vh] mx-auto xl:-mt-[15vh] -mb-[170px] lg:-mb-[100px]" />
     <div>
       <h2 class="text-white text-center text-2xl px-4">You have successfully joined for this waitlist</h2>
-      <p class="text-white text-center mt-2 xl:text-xl">You are number <span class="text-yellow-500"><%= users + 1%></span> on the waitlist</p>
+      <p class="text-white text-center mt-2 xl:text-xl">You are number <span class="text-yellow-500">23</span> on the waitlist</p>
+      <p class="text-white text-center mt-2 xl:text-xl">Hello <%= user.firstName %> <%= user.lastName %> you have successfully joined this waitlist. We will give you updates via mail at every step of the way. Please do well to take a screenshot of this page and post on any social media you are active on. Also remember to tag us. Thank you 🔥</p>
       <p class="text-white text-center mt-4 xl:text-xl" id="count-down">Redirecting to home page in <span class="text-yellow-500">23</span></p>
     </div>
   </div>
   <script src="/js/app.js"></script>
+  <script src="/js/LoginFileController.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
    <script nonce= "= cspNonce"></script>
 </body>
 </html>
+<!-- 6LdU4G0nAAAAAE1b61LcnLGwJBLuvrjfA2NbYsUR -->
+<!-- secret key -->
+<!-- 6LdU4G0nAAAAAMLyktS1VVFjsq4HUBd4dq3Tsplc -->
