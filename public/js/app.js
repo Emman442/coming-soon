@@ -1,5 +1,6 @@
 const modal = document.getElementById('myModal');
 const openModalButton = document.getElementById('openModal');
+const openModalButtons = document.querySelector('.g-recaptcha');
 const countdownElement = document.getElementById('count-down');
 const signupForm = document.querySelector(".form--login");
 signupForm.addEventListener('submit', (e) => {

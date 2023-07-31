@@ -9,6 +9,12 @@
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
   />
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+     <script>
+       function onSubmit(token) {
+         document.getElementById("my-demo-form").submit();
+       }
+     </script>
   <title><%= title %></title>
    <script src="https://www.google.com/recaptcha/api.js?render=6LdU4G0nAAAAAE1b61LcnLGwJBLuvrjfA2NbYsUR"></script>
 </head>
@@ -47,7 +53,7 @@
       </p>
       <img src="./images/logo.png" alt="" class="w-32 mx-auto mt-10 object-contain lg:hidden">
       <div class="w-11/12 mx-auto mt-8 lg:w-full">
-      <form class="form--login">
+      <form class="form--login" id = "my-demo-form">
         <div class="flex items-center gap-x-4">
           <div class="flex-1">
             <label class="text-sm text-white text-left w-full block mb-1">First name</label>
@@ -64,7 +70,7 @@
         </div>
       </div>
       <!-- <a href="/" class="bg-[#DAA520] text-white py-3 w-full block max-w-[90%] mx-auto rounded-lg mt-14 lg:max-w-full" id="openModal">Join waitlist</a> -->
-      <button style="width: 100px; height: 50px; margin: 50px 50px 50px 0px; background-color:#DAA520; display: block; color: white; width: 100% ; border-radius: 5px;">Join The WaitList</button>
+      <button type="button" class="g-recaptcha" data-sitekey="6LeZgG4nAAAAAKjFEXGcpRLHyI8rSGf5C56R2EZc" data-callback="onSubmit" style="width: 100px; height: 50px; margin: 50px 50px 50px 0px; background-color:#DAA520; display: block; color: white; width: 100% ; border-radius: 5px;">Join The WaitList</button>
     </form>
       <p class="text-white mt-4 xl:mt-8">Current Waitlisted Users <span class="bg-gradient-to-br font-medium text-xl xl:text-2xl xl:pl-2 from-white to-gray-600 bg-clip-text text-transparent"><%= users %></span></p>
       <div class="xl:hidden">
@@ -121,10 +127,8 @@
   <script src="/js/app.js"></script>
   <script src="/js/LoginFileController.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-  <script src="https://www.google.com/recaptcha/api.js?render=6LdU4G0nAAAAAE1b61LcnLGwJBLuvrjfA2NbYsUR"></script>
   <script nonce= "= cspNonce"></script>
 </body>
 </html>
-<!-- 6LdU4G0nAAAAAE1b61LcnLGwJBLuvrjfA2NbYsUR -->
-<!-- secret key -->
-<!-- 6LdU4G0nAAAAAMLyktS1VVFjsq4HUBd4dq3Tsplc -->
+
+<!-- 6LeZgG4nAAAAAKjFEXGcpRLHyI8rSGf5C56R2EZc -->
