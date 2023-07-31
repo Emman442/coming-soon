@@ -2,7 +2,7 @@ const modal = document.getElementById('myModal');
 const openModalButton = document.getElementById('openModal');
 const countdownElement = document.getElementById('count-down');
 const signupForm = document.querySelector(".form--login");
-openModalButton.addEventListener('click', (e) => {
+signupForm.addEventListener('submit', (e) => {
   e.preventDefault()
   const firstName = document.getElementById("firstName").value;
   const lastName = document.getElementById("lastName").value;
@@ -10,6 +10,32 @@ openModalButton.addEventListener('click', (e) => {
   console.log(firstName, lastName, email);
   signup(firstName, lastName,email)
   // Slide modal to top
+});
+const signup = async (firstName, lastName, email) => {
+  console.log(email, firstName, lastName);
+  try {
+    const result = await axios({
+      method: "POST",
+      url: "/users/join-waitlist",
+      data: {
+        firstName,
+        lastName,
+        email,
+      },
+    });
+    if (result.status == "201") {
+      showAlert("success", "Account Created Successfully!!");
+      openModal()
+      window.setTimeout(() => {
+        location.assign("/about");
+      }, 1500);
+    }
+    console.log(result);
+  } catch (err) {
+    showAlert("error", err.response.data.message);
+  }
+};
+const openModal = () => {
   let position = 100;
   const interval = setInterval(() => {
     if (position <= 0) {
@@ -33,30 +59,7 @@ openModalButton.addEventListener('click', (e) => {
       modal.style.top = `${position}vh`;
     }
   }, 10);
-});
-const signup = async (firstName, lastName, email) => {
-  console.log(email, firstName, lastName);
-  try {
-    const result = await axios({
-      method: "POST",
-      url: "/users/join-waitlist",
-      data: {
-        firstName,
-        lastName,
-        email,
-      },
-    });
-    if (result.status == "201") {
-      showAlert("success", "Account Created Successfully!!");
-      window.setTimeout(() => {
-        location.assign("/about");
-      }, 1500);
-    }
-    console.log(result);
-  } catch (err) {
-    showAlert("error", err.response.data.message);
-  }
-};
+}
 
 // if (signupForm) {
 //   signupForm.addEventListener("submit", (e) => {
