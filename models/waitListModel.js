@@ -23,5 +23,6 @@ const waitListSchema = new mongoose.Schema({
     default: Date.now()
   }
 });
+waitListSchema.index({ createdAt: 1 });
 const WaitList = mongoose.model("WaitList", waitListSchema)
 module.exports = WaitList

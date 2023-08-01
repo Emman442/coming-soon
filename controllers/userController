@@ -12,11 +12,12 @@ exports.SignUpForWaitList = catchAsync(async(req, res, next)=>{
       return next(new AppError("User already Exists", 400));
     }
 
-    const newUser = await WaitList.create({
+    const newUser = new WaitList({
         firstName,
         lastName,
         email
     })
+    await newUser.save()
     if (newUser) {
       res.status(201).json({
         firstName: newUser.firstName,
@@ -26,4 +27,10 @@ exports.SignUpForWaitList = catchAsync(async(req, res, next)=>{
     } else {
       return next(new AppError("Failed to create user, try again later", 400));
     }
+})
+exports.getLatestUser = catchAsync(async(req, res)=>{
+  const lastUser = await WaitList.findOne().sort({ createdAt: -1 }).exec();
+    res.status(201).json({
+    lastUser
+    });
 })
