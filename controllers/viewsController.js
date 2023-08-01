@@ -2,10 +2,9 @@ const catchAsync = require("../utils/catchAsync");
 const  WaitList = require("../models/waitListModel");
 exports.signup = async (req, res) => {
   const users = await WaitList.find();
-  const latestUser = await WaitList.findOne().sort({ timestamp: -1 });
-  const user = await WaitList.findById(latestUser._id);
+  const lastUser = await WaitList.findOne().sort({ createdAt: -1 }).exec();
   try{
-    res.status(200).render("join", { users: users.length, title: "Join the WaitList Now!", user: user});
+    res.status(200).render("join", { users: users.length, title: "Join the WaitList Now!", user: lastUser});
   }catch(error){
     console.log(error)
   }

@@ -18,7 +18,10 @@ const waitListSchema = new mongoose.Schema({
     lowercase: true,
     validate: [validator.isEmail, "Please provide an email"],
   },
-  timestamp: { type: Date, default: Date.now },
+  createdAt: { 
+    type: Date, 
+    default: Date.now()
+  }
 });
 const WaitList = mongoose.model("WaitList", waitListSchema)
 module.exports = WaitList

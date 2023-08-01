@@ -1,17 +1,27 @@
 const modal = document.getElementById('myModal');
 const openModalButton = document.getElementById('openModal');
 const openModalButtons = document.querySelector('.g-recaptcha');
+const signupForm = document.querySelector('.form--login');
 const countdownElement = document.getElementById('count-down');
-const signupForm = document.querySelector(".form--login");
-signupForm.addEventListener('submit', (e) => {
-  e.preventDefault()
-  const firstName = document.getElementById("firstName").value;
-  const lastName = document.getElementById("lastName").value;
-  const email = document.getElementById("email").value;
-  console.log(firstName, lastName, email);
-  signup(firstName, lastName,email)
-  // Slide modal to top
-});
+// if(signupForm){
+//   signupForm.addEventListener('submit', (e) => {
+//   e.preventDefault()
+//   const firstName = document.getElementById("firstName").value;
+//   const lastName = document.getElementById("lastName").value;
+//   const email = document.getElementById("email").value;
+//   console.log(firstName, lastName, email);
+//   signup(firstName, lastName,email)
+//   // Slide modal to top
+// });
+
+// }
+function onSubmit(response) {
+    const firstName = document.getElementById("firstName").value;
+    const lastName = document.getElementById("lastName").value;
+    const email = document.getElementById("email").value;
+    console.log(firstName, lastName, email);
+    signup(firstName, lastName, email);
+  }
 const signup = async (firstName, lastName, email) => {
   console.log(email, firstName, lastName);
   try {
