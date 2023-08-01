@@ -15,6 +15,8 @@ const countdownElement = document.getElementById('count-down');
 // });
 
 // }
+  const modalFirstName = document.getElementById("modal-firstName");
+  const modalLastName = document.getElementById("modal-lastName");
 function onSubmit(response) {
     const firstName = document.getElementById("firstName").value;
     const lastName = document.getElementById("lastName").value;
@@ -36,6 +38,8 @@ const signup = async (firstName, lastName, email) => {
     });
     if (result.status == "201") {
       showAlert("success", "Account Created Successfully!!");
+      modalFirstName.textContent = firstName;
+      modalLastName.textContent = lastName;
       openModal()
       window.setTimeout(() => {
         location.assign("/about");
