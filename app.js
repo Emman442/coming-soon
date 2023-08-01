@@ -37,9 +37,11 @@ const corsOptions = {
 }
 app.use(cors(corsOptions))
 
-mongoose.connect(DATABASE, { useNewUrlParser: true }).then((con) => {
-  console.log("Database Connected Successfully!");
-});
+mongoose
+  .connect(DATABASE, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then((con) => {
+    console.log("Database Connected Successfully!");
+  });
 app.use(globalErrorHandler);
 
 app.listen(PORT, () => {
