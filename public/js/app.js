@@ -35,7 +35,7 @@ const signup = async (firstName, lastName, email) => {
       openModal()
       window.setTimeout(() => {
         location.assign("/about");
-      }, 1500);
+      }, 15000);
     }
     console.log(result);
   } catch (err) {
@@ -52,7 +52,7 @@ const openModal = () => {
   const interval = setInterval(() => {
     if (position <= 0) {
       clearInterval(interval);
-      let secondsLeft = 23;
+      let secondsLeft = 20;
       countdownElement.textContent = `Redirecting in ${secondsLeft} seconds`;
 
       const countdownInterval = setInterval(() => {
@@ -69,7 +69,7 @@ const openModal = () => {
       console.log(position)
       modal.style.top = `${position}vh`;
     }
-  }, 23000);
+  }, 10);
 }
 const hideAlert = () => {
   const el = document.querySelector(".alert");
@@ -98,7 +98,7 @@ const showFullAlert = (type, msg) => {
       clearInterval(countdownInterval);
       window.location.assign("/join");
     }
-  }, 1000);
+  }, 10000);
 
   cancelButton.addEventListener("click", () => {
     clearInterval(countdownInterval);
@@ -108,6 +108,7 @@ const showFullAlert = (type, msg) => {
 
   const markup = `
     <div class="alert alert--${type}" style="background-color: #000; height: 100vh; width: 100vw; top: 100vh; display: flex; flex-direction: column; justify-content: center; gap: 1.5rem;transition: all 0.2s;" id="myModal">
+      <span style="position: absolute; top: 20px; right: 35px; font-size: 24px; cursor: pointer; color: white;" id="cancelButton" class="close-button">&times;</span>
       <img src="./images/creed.gif" class="h-[50vh] object-contain -mt-[30vh] mx-auto xl:-mt-[15vh] -mb-[170px] lg:-mb-[100px]" />
       <div>
         <p class="text-white text-center mt-2 xl:text-xl">${msg}</p>
