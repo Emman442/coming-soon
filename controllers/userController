@@ -3,12 +3,17 @@ const catchAsync = require("../utils/catchAsync.js")
 const WaitList = require("../models/waitListModel.js")
 exports.SignUpForWaitList = catchAsync(async(req, res, next)=>{
     const {firstName, lastName, email} = req.body
-    // if ( !firstName || !lastName|| !email) {
-    //   return next (new AppError("Please Enter all Details", 404));
-    // }
+    if ( !firstName || !lastName|| !email) {
+      return next (new AppError("Please Enter all Details", 404));
+    }
     const userExists = await WaitList.findOne({ email });
     if (userExists) {
-      return next(new AppError("User already Exists", 400));
+      return next(
+        new AppError(
+          `hello, ${userExists.firstName} ${userExists.lastName} you have already been added to this wait list. Sit back and keep the hype. We will update you on the launch date via mail. Do well to follow our social media platforms and join our community`,
+          400
+        )
+      );
     }
 
     const newUser = new WaitList({
