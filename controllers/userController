@@ -3,12 +3,11 @@ const catchAsync = require("../utils/catchAsync.js")
 const WaitList = require("../models/waitListModel.js")
 exports.SignUpForWaitList = catchAsync(async(req, res, next)=>{
     const {firstName, lastName, email} = req.body
-    if ( !firstName || !lastName|| !email) {
-      return next (new AppError("Please Enter all Details", 404));
-    }
+    // if ( !firstName || !lastName|| !email) {
+    //   return next (new AppError("Please Enter all Details", 404));
+    // }
     const userExists = await WaitList.findOne({ email });
     if (userExists) {
-        console.log(userExists)
       return next(new AppError("User already Exists", 400));
     }
 
