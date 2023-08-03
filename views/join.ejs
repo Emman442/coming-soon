@@ -10,11 +10,6 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
   />
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-     <script>
-       function onSubmit(token) {
-         document.getElementById("my-demo-form").submit();
-       }
-     </script>
   <title><%= title %></title>
    <script src="https://www.google.com/recaptcha/api.js?render=6LdU4G0nAAAAAE1b61LcnLGwJBLuvrjfA2NbYsUR"></script>
 </head>
@@ -33,7 +28,7 @@
     </div>
   </div>
   <div class="relative flex flex-col items-center w-full pt-12 xl:pt-8 2xl:pt-12 lg:flex-row-reverse lg:w-10/12 lg:mx-auto xl:justify-between animate__animated animate__fadeIn">
-    <a href="index.html" class="absolute left-0 ml-4 mt-28 lg:-ml-16 lg:mt-2 xl:-ml-20">
+    <a href="/index" class="absolute left-0 ml-4 mt-28 lg:-ml-16 lg:mt-2 xl:-ml-20">
       <svg width="30" height="43" viewBox="0 0 17 31" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M14.8281 2.84375L2.17188 15.5L14.8281 28.1562" stroke="#DAA520" stroke-width="2.21875" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>        
@@ -69,8 +64,10 @@
           <input type="text" class="text-white py-2 px-4 border-[1px] border-white bg-transparent rounded-lg w-full placeholder:text-white placeholder:font-light focus:outline-none" id="email" placeholder="Email" required>
         </div>
       </div>
+      <div class="g-recaptcha" style="padding-top: 30px;"id="captcha" data-sitekey="6LeZgG4nAAAAAKjFEXGcpRLHyI8rSGf5C56R2EZc"  data-callback="verifyCaptcha"></div>
+      <div id="g-recaptcha-error"></div>
       <!-- <a href="/" class="bg-[#DAA520] text-white py-3 w-full block max-w-[90%] mx-auto rounded-lg mt-14 lg:max-w-full" id="openModal">Join waitlist</a> -->
-      <button class="g-recaptcha" data-sitekey="6LeZgG4nAAAAAKjFEXGcpRLHyI8rSGf5C56R2EZc" data-callback="onSubmit" style="width: 100px; height: 50px; margin: 50px 50px 50px 0px; background-color:#DAA520; display: block; color: white; width: 100% ; border-radius: 5px;">Join The WaitList</button>
+      <button style="width: 100px; height: 50px; margin: 50px 50px 50px 0px; background-color:#DAA520; display: block; color: white; width: 100% ; border-radius: 5px;">Join The WaitList</button>
     </form>
       <p class="text-white mt-4 xl:mt-8">Current Waitlisted Users <span class="bg-gradient-to-br font-medium text-xl xl:text-2xl xl:pl-2 from-white to-gray-600 bg-clip-text text-transparent"><%= users %></span></p>
       <div class="xl:hidden">
