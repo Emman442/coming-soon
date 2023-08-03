@@ -9,9 +9,15 @@
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
   />
+<script>
+
+</script>
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
      <script>
        function onSubmit(token) {
+        if (!document.getElementById("firstName").value || !document.getElementById("lastName").value){
+          return;
+        }
          document.getElementById("my-demo-form").submit();
        }
      </script>
