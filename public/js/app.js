@@ -97,7 +97,7 @@ const showAlert = (type, msg) => {
 const showFullAlert = (type, msg) => {
   let secondsLeft = 20;
   const countdownElement = document.getElementById("count-down");
-  const cancelsButton = document.getElementById("cancelButton");
+  const cancelsButton = document.querySelector(".close-btn");
   const modal = document.getElementsByClassName("alert");
 
   countdownElement.textContent = `Redirecting in ${secondsLeft} seconds`;
@@ -118,17 +118,20 @@ const showFullAlert = (type, msg) => {
    });
  }
 
-  const markup = `
-    <div class="alert alert--${type}" style="background-color: #000; height: 100vh; width: 100vw; top: 100vh; display: flex; flex-direction: column; justify-content: center; gap: 1.5rem;transition: all 0.2s;" id="myModal">
-      <span style="position: absolute; top: 20px; right: 35px; font-size: 24px; cursor: pointer; color: white;" id="cancelsButton" class="close-button">&times;</span>
-      <img src="./images/creed.gif" class="h-[50vh] object-contain -mt-[30vh] mx-auto xl:-mt-[15vh] -mb-[170px] lg:-mb-[100px]" />
+ const markup = `
+    <div class="alert alert--${type}" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; background-color: rgba(0, 0, 0, 0.8); z-index: 9999;">
+      <span style="position: absolute; top: 20px; right: 35px; font-size: 24px; cursor: pointer; color: white;" id="cancelsButton" class="close-btn">&times;</span>
+      <img src="./images/creed.gif" style="height: 50vh; object-fit: contain; margin-top: -30vh; max-width: 100%; margin-bottom: -170px;">
       <div>
-        <p class="text-white text-center mt-2 xl:text-xl; width: 60%; margin: 0 auto">${msg}</p>
-        <p class="text-white text-center mt-4 xl:text-xl" id="count-down">Redirecting to home page...</p>
+        <p style="color: white; text-align: center; font-size: 1.6rem; width: 60%; margin: 7% auto">${msg}</p>
+        <p style="color: white; text-align: center; margin-top: 4rem; font-size: 1.6rem" id="count-down">Redirecting to home page...</p>
       </div>
     </div>
   `;
-
   document.querySelector("body").insertAdjacentHTML("afterbegin", markup);
   window.setTimeout(hideAlert, 5000);
+  openModal();
+  window.setTimeout(() => {
+    location.assign("/about");
+  }, 3000);
 };
