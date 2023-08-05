@@ -11,11 +11,10 @@
 </head>
 <body class="bg-black">
   <div class="absolute top-0 min-h-screen h-full w-full">
-    <img src="./images/star-blob.png" class="relative -top-8 xl:hidden" />
-    <img src="./images/d-mini-stars.png" class="fixed -top-8 xl:block hidden w-[60%] object-cover right-0 h-[calc(100vh + 1rem)]" />
+    <img src="./images/star-blob.png" class="relative -top-8 md:max-h-screen md:w-screen xl:hidden opacity-70" />
+    <img src="./images/d-mini-stars.png" class="fixed -top-8 xl:block hidden w-[60%] object-cover right-0 h-[calc(100vh + 1rem)] opacity-70" />
     <img src="./images/star.png" class="absolute top-8 xl:block hidden w-[30%] object-cover left-[25%] opacity-40" />
     <img src="./images/mini-stars.png" class="absolute bottom-0 xl:hidden" />
-    <img style="height: 110px; bottom: -25%;" src="./images/mini-stars.png" class="relative w-full object-cover xl:hidden" />
   </div>
   <div>
     <div class="flex items-center justify-between relative p-4 xl:w-10/12 xl:mx-auto xl:mt-8">
@@ -23,8 +22,13 @@
       <p class="text-[#807B00] bg-[#FFFBD2] text-xs py-1 px-2 rounded-xl lg:hidden">Coming soon</p>
     </div>
   </div>
-  <div class="relative flex flex-col items-center w-full pt-12 xl:pt-6 2xl:pt-12 lg:flex-row-reverse lg:w-10/12 lg:mx-auto xl:justify-between animate__animated animate__fadeIn">
-    <img src="./images/hero-1.png" alt="" class="w-[60%] object-contain xl:w-[40%] animate__animated animate__jackInTheBox">
+  <div class="relative flex flex-col items-center w-full pt-12 xl:pt-8 2xl:pt-12 lg:flex-row-reverse lg:w-10/12 lg:mx-auto xl:justify-between animate__animated animate__fadeIn">
+    <a href="index.html" class="absolute left-0 ml-4 mt-28 lg:-ml-16 lg:mt-2 xl:-ml-20">
+      <svg width="30" height="43" viewBox="0 0 17 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M14.8281 2.84375L2.17188 15.5L14.8281 28.1562" stroke="#DAA520" stroke-width="2.21875" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>        
+    </a>
+    <img src="./images/hero-2.png" alt="" class="w-[60%] object-contain xl:w-[40%] animate__animated animate__flipInY">
     <div class="pt-5 text-center xl:pl-5 xl:flex-[0.60]">
       <div class="hidden lg:flex items-center gap-x-5 relative mb-5">
         <img src="./images/logo.png" alt="" class="w-36 object-contain"> 
@@ -38,18 +42,25 @@
         and claim a premium username
       </p>
       <img src="./images/logo.png" alt="" class="w-32 mx-auto mt-10 object-contain lg:hidden">
-      <h2 class="text-2xl text-white text-center mt-3 lg:text-3xl xl:text-[3rem] lg:mt-8 animate__animated animate__jello">Join our Community</h2>
-      <div class="flex items-center gap-x-14 xl:gap-x-20 justify-center mt-3 lg:mt-8">
-        <a href="https://t.me/+tFt5COL_UrpiYzZk">
-          <img src="./images/telegram-btn.png" alt="" class="w-[6.5rem] object-contain relative -top-[5px]">
-        </a>
-        <a href="">
-          <img src="./images/whatsapp-btn.png" alt="" class="w-16 object-contain lg:w-20">
-        </a>
+      <div class="w-11/12 mx-auto mt-8 lg:w-full">
+        <div class="flex items-center gap-x-4">
+          <div class="flex-1">
+            <label class="text-sm text-white text-left w-full block mb-1">First name</label>
+            <input type="text" class="text-white py-2 px-4 border-[1px] border-white bg-transparent rounded-lg w-full placeholder:text-white placeholder:font-light focus:outline-none"  placeholder="First name">
+          </div>
+          <div class="flex-1">
+            <label class="text-sm text-white text-left w-full block mb-1">Last name</label>
+            <input type="text" class="text-white py-2 px-4 border-[1px] border-white bg-transparent rounded-lg w-full placeholder:text-white placeholder:font-light focus:outline-none"  placeholder="Last name">
+          </div>
+        </div>
+        <div class="flex-1 mt-4">
+          <label class="text-sm text-white text-left w-full block mb-1">Email</label>
+          <input type="text" class="text-white py-2 px-4 border-[1px] border-white bg-transparent rounded-lg w-full placeholder:text-white placeholder:font-light focus:outline-none"  placeholder="Email">
+        </div>
       </div>
-      <a href="join.html" class="bg-[#DAA520] text-white py-3 w-full block max-w-[90%] mx-auto rounded-lg mt-14 lg:max-w-full">Join waitlist</a>
+      <a href="index.html" class="bg-[#DAA520] text-white py-3 w-full block max-w-[90%] mx-auto rounded-lg mt-14 lg:max-w-full" id="openModal">Join waitlist</a>
       <p class="text-white mt-4 xl:mt-8">Current Waitlisted Users <span class="bg-gradient-to-br font-medium text-xl xl:text-2xl xl:pl-2 from-white to-gray-600 bg-clip-text text-transparent">485,943</span></p>
-      <div class="xl:hidden">
+      <div class="xl:hidden mb-8">
         <p class="text-lg text-white text-center mt-8">Follow Us</p>
         <div class="flex mt-4 justify-center gap-x-3 items-center">
           <a href="#">
@@ -65,10 +76,11 @@
             <img src="./images/th.png" alt="" class="w-8 object-contain relative -top-[5px]">
           </a>
         </div>
+        <a href="about.html" class="text-[#daa520] underline underline-offset-2">About us</a>
       </div>
     </div>
   </div>
-  <div class="hidden xl:flex items-center justify-center w-full relative top-10">
+  <div class="hidden xl:flex items-center justify-center w-full relative top-14">
     <div class="hidden xl:flex py-5 mt-5 w-10/12 border-t-[1px] border-dashed border-gray-700 text-gray-400 items-center justify-between">
       <p class="">Creedlance ltd 2023 All Rights Reserved</p>
       <a href="about.html" class="text-[#daa520] underline underline-offset-2">About us</a>
@@ -91,5 +103,14 @@
       </div>
     </div>
   </div>
+  <div class="fixed z-50 bg-[#000] h-screen w-screen top-[100vh] flex flex-col justify-center gap-y-6 transition duration-200" id="myModal">
+    <img src="./images/creed.gif" class="h-[50vh] object-contain -mt-[30vh] mx-auto xl:-mt-[15vh] -mb-[170px] lg:-mb-[100px]" />
+    <div>
+      <h2 class="text-white text-center text-2xl px-4">You have successfully joined for this waitlist</h2>
+      <p class="text-white text-center mt-2 xl:text-xl">You are number <span class="text-yellow-500">23</span> on the waitlist</p>
+      <p class="text-white text-center mt-4 xl:text-xl" id="count-down">Redirecting to home page in <span class="text-yellow-500">23</span></p>
+    </div>
+  </div>
+  <script src="./app.js"></script>
 </body>
 </html>

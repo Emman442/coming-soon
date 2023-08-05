@@ -114,12 +114,13 @@ const showFullAlert = (type, msg) => {
 
  if (cancelsButton){
    cancelsButton.addEventListener("click", () => {
+    const modal = document.querySelector(".alert");
      modal.style.display = "none";
    });
  }
 
  const markup = `
-    <div class="alert alert--${type}" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; background-color: rgba(0, 0, 0, 0.8); z-index: 9999;">
+    <div class="alert alert--${type}" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; background-color: rgba(0, 0, 0, 0.8); z-index: 9999; transition duration-200"">
       <span style="position: absolute; top: 20px; right: 35px; font-size: 24px; cursor: pointer; color: white;" id="cancelsButton" class="close-btn">&times;</span>
       <img src="./images/creed.gif" style="height: 50vh; object-fit: contain; margin-top: -30vh; max-width: 100%; margin-bottom: -170px;">
       <div>
@@ -130,7 +131,6 @@ const showFullAlert = (type, msg) => {
   `;
   document.querySelector("body").insertAdjacentHTML("afterbegin", markup);
   window.setTimeout(hideAlert, 5000);
-  openModal();
   window.setTimeout(() => {
     location.assign("/about");
   }, 3000);
