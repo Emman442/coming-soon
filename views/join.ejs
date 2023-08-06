@@ -61,7 +61,7 @@
         </div>
         <div class="flex-1 mt-4">
           <label class="text-sm text-white text-left w-full block mb-1">Email</label>
-          <input type="text" class="text-white py-2 px-4 border-[1px] border-white bg-transparent rounded-lg w-full placeholder:text-white placeholder:font-light focus:outline-none" id="email" placeholder="Email" required>
+          <input type="text" pattern="[^\s@]+@[^\s@]+\.[^\s@]+" class="text-white py-2 px-4 border-[1px] border-white bg-transparent rounded-lg w-full placeholder:text-white placeholder:font-light focus:outline-none" id="email" placeholder="Email" required>
         </div>
       </div>
       <div class="g-recaptcha" style="padding-top: 30px;"id="captcha" data-sitekey="6LeZgG4nAAAAAKjFEXGcpRLHyI8rSGf5C56R2EZc"  data-callback="verifyCaptcha"></div>

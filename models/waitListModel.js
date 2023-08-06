@@ -16,7 +16,7 @@ const waitListSchema = new mongoose.Schema({
     required: [true, "Please enter your email"],
     unique: true,
     lowercase: true,
-    validate: [validator.isEmail, "Please provide an email"],
+    // validate: [validator.isEmail, "Please provide an email"],
   },
   createdAt: { 
     type: Date, 
